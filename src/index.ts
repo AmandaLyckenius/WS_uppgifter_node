@@ -2,10 +2,12 @@ import express from "express"
 import type {Request, Response} from "express"
 import "dotenv/config"
 import {closeDB, runDB} from "./database/database.js"
+import type {User} from "./types/User.js"
 
 
 const app = express()
 const port: number = 3000
+
 
 
 app.get("/:id", (req: Request, res: Response) => {
@@ -20,6 +22,14 @@ app.get("/:id", (req: Request, res: Response) => {
 
 })
 
+app.post("/user", (req:Request, res: Response) => {
+    const newUser: User = {
+        name: "Amanda",
+        id: 2
+    }
+
+    res.status(201).send(newUser)
+})
 
 
 async function startServer() {
