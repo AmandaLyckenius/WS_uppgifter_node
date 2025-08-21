@@ -9,7 +9,7 @@ const app = express()
 const port: number = 3000
 
 
-
+/*
 app.get("/:id", (req: Request, res: Response) => {
     const id: number = Number(req.params.id)
 
@@ -20,9 +20,9 @@ app.get("/:id", (req: Request, res: Response) => {
     
     res.send({ id: id })
 
-})
+})*/
 
-app.post("/user", (req:Request, res: Response) => {
+app.get("/user", (req:Request, res: Response) => {
     const newUser: User = {
         name: "Amanda",
         id: 2
@@ -31,6 +31,9 @@ app.post("/user", (req:Request, res: Response) => {
     res.status(201).send(newUser)
 })
 
+app.get("/", (req,res) => {
+    res.status(200).send({ message: "Hello world!" })
+})
 
 async function startServer() {
     try {
@@ -52,8 +55,4 @@ async function startServer() {
 
 startServer()
 
-/*
-app.get("/", (req,res) => {
-    res.status(200).send({ message: "Hello world!" })
-})
-*/
+
